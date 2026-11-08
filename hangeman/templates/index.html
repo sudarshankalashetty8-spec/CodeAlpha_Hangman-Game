@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wordly | A little word game</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="orb orb-one"></div><div class="orb orb-two"></div><div class="orb orb-three"></div>
+  <main class="shell">
+    <header class="site-header">
+      <a class="brand" href="/" aria-label="Wordly home"><span class="brand-mark">w.</span><span>wordly</span></a>
+      <div class="header-note"><span class="sparkle">✦</span> A LITTLE DAILY BRAIN BOOST</div>
+      <div class="header-right"><span class="status-dot"></span> READY TO PLAY</div>
+    </header>
+
+    <section class="hero">
+      <div class="eyebrow"><span>✦</span> THINK • GUESS • DISCOVER</div>
+      <h1>Find the word.<br><span>Have a little fun.</span></h1>
+      <p class="sub">A tiny challenge for your curious mind. Pick your letters, follow the clues and reveal the hidden word.</p>
+    </section>
+
+    <section class="game-card">
+      <div class="game-top">
+        <div><div class="section-label">TODAY'S LITTLE CHALLENGE</div><div class="category-line">Playing in <span id="categoryName">—</span></div></div>
+        <div class="mistakes"><span class="heart">♥</span><div><b id="remaining">6</b><small> chances left</small></div></div>
+      </div>
+      <div class="play-area">
+        <div class="gallows-wrap">
+          <div class="drawing-frame">
+            <svg id="gallows" viewBox="0 0 240 230" role="img" aria-label="Hangman drawing">
+              <path class="wood" d="M28 208 H185 M65 208 V18 H165 V42 M65 55 L100 18"/>
+              <circle id="head" class="body-part" cx="165" cy="62" r="20"/>
+              <path id="body" class="body-part" d="M165 82 V140"/>
+              <path id="arms" class="body-part" d="M165 98 L135 122 M165 98 L195 122"/>
+              <path id="legs" class="body-part" d="M165 140 L137 178 M165 140 L193 178"/>
+            </svg>
+          </div>
+          <div class="drawing-caption">TRIES USED <span id="mistakeCount">0</span><i>/ 6</i></div>
+        </div>
+        <div class="word-panel">
+          <div class="word-label">THE HIDDEN WORD</div>
+          <div id="word" class="word">_ _ _ _ _ _</div>
+          <div class="hint"><span class="hint-icon">✧</span><div><b>YOUR CLUE</b><p id="hintText">Your clue will appear here.</p></div></div>
+          <div id="message" class="message" aria-live="polite">Choose a letter to begin your adventure.</div>
+        </div>
+      </div>
+      <div class="keyboard-area">
+        <div class="keyboard-heading"><span>CHOOSE A LETTER</span><small id="keyStatus">26 LETTERS AVAILABLE</small></div>
+        <div id="keyboard" class="keyboard"></div>
+      </div>
+      <div class="game-bottom">
+        <label class="select-wrap"><span>WORD CATEGORY</span><select id="category">{% for c in categories %}<option>{{ c }}</option>{% endfor %}<option value="Random">Random mix</option></select></label>
+        <button id="newGame" class="new-game"><span>↻</span> New round</button>
+      </div>
+    </section>
+    <footer><span>MADE FOR CURIOUS MINDS</span><span>ONE LETTER AT A TIME <b>✦</b></span></footer>
+  </main>
+  <script src="{{ url_for('static', filename='game.js') }}"></script>
+</body>
+</html>

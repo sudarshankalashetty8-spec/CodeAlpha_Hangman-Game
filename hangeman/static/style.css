@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap');
+:root{--ink:#24213b;--muted:#85839b;--purple:#7565d8;--purple-dark:#5d4ec0;--lavender:#f0edff;--line:#eeecf6;--paper:#fff;--mint:#e8f6f0;--rose:#fff0f1}
+*{box-sizing:border-box}
+body{margin:0;min-height:100vh;overflow-x:hidden;background:#f8f7fc;color:var(--ink);font-family:'DM Sans',sans-serif;position:relative}
+.orb{position:fixed;border-radius:50%;filter:blur(2px);pointer-events:none;z-index:-1}
+.orb-one{width:430px;height:430px;background:#e9e5ff;top:-230px;right:-110px}
+.orb-two{width:390px;height:390px;background:#fce9ef;bottom:-250px;left:-140px}
+.orb-three{width:180px;height:180px;background:#e5f4ee;top:48%;right:-120px}
+.shell{width:min(100% - 48px,960px);margin:0 auto;padding:25px 0 22px}
+.site-header{height:45px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:9px;text-decoration:none;color:var(--ink);font:800 15px Manrope,sans-serif;letter-spacing:-.5px}
+.brand-mark{display:grid;place-items:center;width:31px;height:31px;border-radius:10px;background:var(--purple);color:#fff;font:800 17px Manrope;box-shadow:0 5px 12px #7565d83b}
+.header-note,.header-right{font-size:9px;font-weight:800;letter-spacing:1.5px;color:#9693aa}
+.header-note{background:#fff;border:1px solid var(--line);border-radius:30px;padding:10px 15px}
+.sparkle{color:#d7a34f;margin-right:6px}.status-dot{display:inline-block;width:7px;height:7px;border-radius:50%;background:#65bd91;margin-right:7px}
+.hero{text-align:center;padding:43px 0 27px}
+.eyebrow{font-size:9px;font-weight:800;letter-spacing:2px;color:var(--purple)}
+.eyebrow span{color:#d5a24e;margin-right:5px}
+h1{font:800 clamp(36px,5.5vw,52px)/1.12 Manrope,sans-serif;letter-spacing:-2px;margin:13px 0 11px}
+h1 span{color:var(--purple)}
+.sub{font-size:13px;line-height:1.75;color:var(--muted);max-width:480px;margin:0 auto}
+.game-card{background:rgba(255,255,255,.94);border:1px solid #eeecf6;border-radius:23px;box-shadow:0 20px 60px #30275c0d;padding:25px 31px 22px}
+.game-top{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line);padding-bottom:16px}
+.section-label,.word-label,.keyboard-heading,.drawing-caption{font-size:9px;font-weight:800;letter-spacing:1.5px;color:#a09db2}
+.category-line{font-size:12px;color:#9693a7;margin-top:7px}.category-line span{color:var(--purple);font-weight:800;margin-left:4px}
+.mistakes{display:flex;align-items:center;gap:9px}.heart{font-size:19px;color:#e18c9a}.mistakes b{font:800 22px Manrope}.mistakes small{font-size:10px;color:#9693a7}
+.play-area{display:grid;grid-template-columns:40% 60%;align-items:center;min-height:232px;padding:19px 13px 10px}
+.gallows-wrap{text-align:center;border-right:1px solid var(--line);padding-right:12px}
+.drawing-frame{width:205px;height:183px;max-width:100%;margin:auto;background:linear-gradient(145deg,#f8f6ff,#f2f0ff);border:1px solid #eeebff;border-radius:18px;display:grid;place-items:center}
+.gallows-wrap svg{width:180px;max-width:95%;height:165px}
+.wood{fill:none;stroke:#c7a77e;stroke-width:5;stroke-linecap:round;stroke-linejoin:round}
+.body-part{fill:none;stroke:var(--purple);stroke-width:5;stroke-linecap:round;opacity:0;transition:opacity .2s}
+.body-part.show{opacity:1}
+.drawing-caption{font-size:8px;margin-top:11px}.drawing-caption span{color:#e18c9a;margin:0 3px}.drawing-caption i{font-style:normal;color:#c0bdce}
+.word-panel{padding:13px 15px 13px 35px}
+.word{font:800 clamp(24px,4vw,34px) Manrope;letter-spacing:8px;color:var(--purple);margin:16px 0 23px;white-space:nowrap;min-height:40px}
+.hint{display:flex;gap:12px;align-items:flex-start;background:#f8f7ff;border:1px solid #efedfb;border-radius:13px;padding:13px 15px;max-width:390px}
+.hint-icon{font-size:20px;color:#c49b4d}.hint b{font-size:8px;letter-spacing:1.5px;color:#9c99ae}.hint p{font-size:11px;color:#77758e;margin:5px 0 0;line-height:1.55}
+.message{font-size:11px;color:#89869e;margin-top:14px;min-height:17px}.message.success{color:#27815d;font-weight:700}.message.error{color:#c66f7c;font-weight:700}
+.keyboard-area{border-top:1px solid var(--line);padding-top:19px}
+.keyboard-heading{display:flex;justify-content:space-between;margin-bottom:13px}.keyboard-heading small{font-size:8px;letter-spacing:1px;color:#aaa7b9}
+.keyboard{display:grid;grid-template-columns:repeat(13,1fr);gap:7px}
+.key{border:1px solid #ebe9f3;background:#fbfaff;color:#514d6a;border-radius:9px;height:39px;font:800 11px Manrope;cursor:pointer;transition:all .16s}
+.key:hover:not(:disabled){background:var(--purple);color:#fff;transform:translateY(-2px);border-color:var(--purple);box-shadow:0 5px 12px #7565d82b}
+.key:disabled{cursor:default;background:#f3f2f7;color:#c4c1cf;border-color:#f3f2f7}
+.key.correct{background:#e6f5ed;color:#32805c;border-color:#d8eee2}.key.wrong{background:#fff0f1;color:#c57983;border-color:#f8dfe2}
+.game-bottom{display:flex;justify-content:space-between;align-items:center;margin-top:20px}
+.select-wrap{display:flex;align-items:center;gap:10px;font-size:8px;font-weight:800;letter-spacing:1.2px;color:#a09db2}
+.select-wrap select{border:1px solid #eae8f2;background:#fff;border-radius:9px;padding:10px 28px 10px 11px;color:#5c5877;font:700 10px 'DM Sans';outline:none;cursor:pointer}
+.select-wrap select:focus{border-color:#a79ce9}
+.new-game{border:0;background:var(--purple);color:#fff;border-radius:10px;padding:11px 18px;font:700 11px 'DM Sans';cursor:pointer;box-shadow:0 6px 14px #7565d82b;transition:.15s}
+.new-game span{font-size:15px;vertical-align:-1px;margin-right:5px}.new-game:hover{background:var(--purple-dark);transform:translateY(-1px)}
+footer{display:flex;justify-content:space-between;padding:20px 3px 0;color:#aaa7b7;font-size:8px;font-weight:800;letter-spacing:1.4px}footer b{color:#d5a24e}
+@media(max-width:650px){
+.shell{width:min(100% - 28px,520px);padding-top:17px}.header-note{display:none}.header-right{font-size:8px}
+.hero{padding:35px 0 21px}h1{letter-spacing:-1.5px}.sub{font-size:12px;max-width:360px}
+.game-card{padding:18px 15px;border-radius:18px}.play-area{grid-template-columns:1fr;gap:15px;padding:15px 0}
+.gallows-wrap{border-right:0;border-bottom:1px solid var(--line);padding:0 0 15px}.drawing-frame{height:160px}.gallows-wrap svg{height:145px}
+.word-panel{padding:8px 4px}.word{letter-spacing:5px;margin:13px 0 18px}
+.keyboard{grid-template-columns:repeat(7,1fr);gap:6px}.key{height:40px}
+.game-bottom{gap:9px}.select-wrap{gap:6px}.select-wrap select{max-width:125px;padding-right:15px}
+footer{font-size:7px;letter-spacing:.8px}
+}
+@media(max-width:360px){.game-card{padding:15px 11px}.word{font-size:22px;letter-spacing:3px}.new-game{padding:10px 12px}}
